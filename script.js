@@ -1,3 +1,21 @@
+//Random Color Genarator
+function getColor() {
+    const r = Math.floor(Math.random() * 256)
+      .toString(16)
+      .padStart(2, "0");
+    const g = Math.floor(Math.random() * 256)
+      .toString(16)
+      .padStart(2, "0");
+    const b = Math.floor(Math.random() * 256)
+      .toString(16)
+      .padStart(2, "0");
+  
+  
+      return `#${r}${g}${b}`;
+  }
+
+
+
 // Creating the split Function
 const split = (dir, btn) => {
   const parent = btn.parentElement; //Accessing the parent element of Target Button
@@ -16,6 +34,9 @@ const btnBlock2 = document.createElement("div");
 // Giving them btnWrapper Class
 btnBlock1.className = "btnWrapper";
 btnBlock2.className = "btnWrapper";
+
+//Setting Random color to btnBlocks Background
+btnBlock2.style.backgroundColor = getColor();
 
 //Setting innerHTML for btnBlocks
 btnBlock1.innerHTML = `
