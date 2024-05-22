@@ -1,20 +1,24 @@
 //Random Color Genarator
-function getColor() {
-    const r = Math.floor(Math.random() * 256)
-      .toString(16)
-      .padStart(2, "0");
-    const g = Math.floor(Math.random() * 256)
-      .toString(16)
-      .padStart(2, "0");
-    const b = Math.floor(Math.random() * 256)
-      .toString(16)
-      .padStart(2, "0");
-  
-  
-      return `#${r}${g}${b}`;
-  }
+const getColor = () => {
+  const r = Math.floor(Math.random() * 256)
+    .toString(16)
+    .padStart(2, "0");
+  const g = Math.floor(Math.random() * 256)
+    .toString(16)
+    .padStart(2, "0");
+  const b = Math.floor(Math.random() * 256)
+    .toString(16)
+    .padStart(2, "0");
 
+  return `#${r}${g}${b}`;
+};
 
+//
+// Funtion to remove btnBlocks
+const minus = (btn) => {
+  const parent = btn.parentElement;
+  parent.remove();
+};
 
 // Creating the split Function
 const split = (dir, btn) => {
@@ -40,11 +44,13 @@ btnBlock2.style.backgroundColor = getColor();
 
 //Setting innerHTML for btnBlocks
 btnBlock1.innerHTML = `
+    <button class="minus" onclick="minus(this)">-</button>
     <button class="split-btn" onclick="split('vertical', this)">V</button>
     <button class="split-btn" onclick="split('horizontal', this)">H</button>
     `;
 
 btnBlock2.innerHTML = `
+    <button class="minus" onclick="minus(this)">-</button>
     <button class="split-btn" onclick="split('vertical', this)">V</button>
     <button class="split-btn" onclick="split('horizontal', this)">H</button>
     `;
